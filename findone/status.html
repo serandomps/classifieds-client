@@ -1,0 +1,16 @@
+<div class="mt-1">
+    <div class="status-buttons btn-group" role="group">
+        <button id="status-buttons-{_.container}" type="button"
+                class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+            Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="status-buttons-{_.container}">
+            {#_.status}
+            <a class="dropdown-item text-capitalize" href="#" data-action="{.}">{.}</a>
+            {/_.status}
+        </div>
+    </div>
+</div>

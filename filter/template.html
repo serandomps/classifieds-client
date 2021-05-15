@@ -1,0 +1,68 @@
+<div class="model-vehicles-filter panel-group mb-3" role="tablist" aria-multiselectable="true">
+    <div id="accordion-{_.container}" class="accordion-collapsible">
+        <div class="card">
+            <div class="card-header" role="tab" id="heading-{_.container}">
+                <h4 class="m-0 text-muted">
+                    <button class="collapse-filters btn btn-link text-muted p-0 font-weight-bold text-decoration-none d-lg-none"
+                        data-toggle="collapse" data-target="#collapse-{_.container}"
+                        aria-expanded="true" aria-controls="collapse-{_.container}">
+                        <i class="fas fa-search fa-fw mr-2"></i>Search
+                    </button>
+                    <span class="font-weight-bold d-none d-lg-block">
+                        <i class="fas fa-search fa-fw mr-2"></i>Search
+                    </span>
+                </h4>
+            </div>
+            <div id="collapse-{_.container}" class="collapse serand-lg-show" aria-labelledby="heading-{_.container}"
+                 data-parent="#accordion-{_.container}">
+                <div class="card-body">
+                    <form>
+                        {?_.user}
+                        <div class="source user form-group text-center mb-2">
+                            {?_.user._.avatar}
+                            <img class="avatar rounded-circle mb-2" src="{_.user._.avatar}"/>
+                            {:else}
+                            <div class="avatar d-inline-block text-light rounded-circle bg-secondary font-weight-bold mb-2">
+                                {_.user._.initials}
+                            </div>
+                            {/_.user._.avatar}
+                            <h2 class="h5 text-primary font-weight-bold">{_.user.username}</h2>
+                            <a href="#" class="exclude h5 far fa-times-circle text-danger text-decoration-none"></a>
+                        </div>
+                        <!-- <div class="source user form-group text-center1 mb-3">
+                             <div class="d-flex">
+                                 <div class="p-2 flex-fill text-left"><i class="far h5 fa-user"></i></div>
+                                 <div class="p-2 flex-fill text-right"><i class="far h5 fa-times-circle text-danger"></i></div>
+                             </div>
+                             <span class="text-primary">{_.user.username}</span>
+                         </div>-->
+                        {/_.user}
+                        {@blocks block="select" id=_.container name="type" label="Type" value=type options=_.types size="10" icon="fas fa-ribbon"/}
+                        {@blocks block="select" id=_.container name="make" label="Make" value=make options=_.makes size="10" icon="fas fa-building"/}
+                        {@blocks block="select" id=_.container name="model" label="Model" value=model options=_.models size="10" icon="fas fa-tag"/}
+                        {@blocks block="select" id=_.container name="color" label="Color" value=color options=_.colors icon="fas fa-palette"/}
+                        {@blocks block="checkboxes" id=_.container name="condition" value=condition options=_.conditions label="Condition" icon="fas fa-battery-full"/}
+                        <div class="form-group year">
+                            <label class="title-text font-weight-bold"><i class="text-muted fas fa-calendar mr-2"></i>Year</label>
+                            {@blocks block="select" id=_.container name="manufacturedAt-gte" help="From" value=manufacturedAt-gte options=_.manufacturedFrom size="10"/}
+                            {@blocks block="select" id=_.container name="manufacturedAt-lte" help="To" value=manufacturedAt-lte options=_.manufacturedTo size="10"/}
+                        </div>
+                        <div class="form-group price">
+                            <label class="title-text font-weight-bold"><i class="text-muted fas fa-money-check-alt mr-2"></i>Price</label>
+                            {@blocks block="text" id=_.container name="price-gte" help="Min (LKR)"/}
+                            {@blocks block="text" id=_.container name="price-lte" help="Max (LKR)"/}
+                        </div>
+                        {@blocks block="checkboxes" id=_.container name="transmission" value=transmission options=_.transmissions label="Transmission" icon="fas fa-cogs"/}
+                        {@blocks block="checkboxes" id=_.container name="fuel" value=fuel options=_.fuels label="Fuel" icon="fas fa-gas-pump"/}
+                        {@blocks block="select" id=_.container name="location-province" value=province options=_.provinces label="Province" size="10" icon="fas fa-landmark"/}
+                        {@blocks block="select" id=_.container name="location-district" value=districts options=_.districts label="District" size="10" icon="fas fa-archway"/}
+                        {@blocks block="select" id=_.container name="location-city" value=city options=_.cities label="City" size="10" icon="fas fa-city"/}
+                        <!--
+                        {@blocks block="select" id=_.container name="location-postal" value=postal options=_.postals label="Postal Code" size="10" icon="fas fa-envelope"/}
+                        -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

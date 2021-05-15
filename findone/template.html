@@ -1,0 +1,32 @@
+<div class="model-vehicles-findone">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="actions">
+            {?_.edit}
+                {>"model-vehicles-findone-actions"/}
+            {:else}
+            {@is group="admin"}
+                {>"model-vehicles-findone-actions"/}
+            {/is}
+            {/_.edit}
+            </div>
+            <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls gallery-thumbnails mt-3">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+            <div class="serand-details">
+                {>"model-vehicles-findone-details"/}
+            </div>
+            {?_.location}
+            <div class="location mt-3"></div>
+            {/_.location}
+        </div>
+        <div class="col-lg-3">
+            <div class="recent"></div>
+        </div>
+    </div>
+</div>

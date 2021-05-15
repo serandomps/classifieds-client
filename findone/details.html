@@ -1,0 +1,299 @@
+<div class="d-none d-lg-flex mt-4">
+    <div class="text-dark mr-5">
+        <h1 class="font-weight-bold title text-dark">
+            {?title}
+            {title}
+            {:else}
+            {_.make.title} {_.model.title}{?edition}
+            <span class="text-muted ml-1">{edition}{/edition} {manufacturedAt|year}</span>
+            {/title}
+        </h1>
+        <div class="text-muted d-flex">
+            <div class="text-truncate mr-2">
+                <span class="mr-1">for <strong>sale</strong> by</span>
+                <a href="/vehicles?query[user]={_.user.id}"
+                   class="text-decoration-none text-primary">{_.user.username}</a>,
+            </div>
+            <div class="mr-2">
+                {?_.bumped} <i class="fas fa-angle-double-up text-warning mr-1"></i>{/_.bumped}{updatedAt|ago},
+            </div>
+            <div class="mr-2">{_.city}</div>
+        </div>
+        <div class="btn-group actions mt-2" role="group">
+            <!--<button type="button" class="btn rounded-circle pl-0 mr-4">
+                <i class="fab fa-facebook-f fa-fw text-primary"></i>
+            </button>
+            <button type="button" class="btn rounded-circle pl-0 mr-4">
+                <i class="fab fa-twitter fa-fw text-info"></i>
+            </button>-->
+            <a href="/vehicles/{id}/report" class="btn btn-link rounded-circle pl-0 mr-1">
+                <i class="fas fa-flag fa-fw text-danger"></i>
+            </a>
+        </div>
+    </div>
+    <div class="text-dark">
+        <h1 class="font-weight-bold title text-dark mt-2">
+            <span class="text-success h0 mr-1">{price|numeral}</span>
+            <span class="text-muted h6">LKR</span>
+        </h1>
+    </div>
+</div>
+<div class="row text-muted d-lg-none mt-4">
+    <div class="col-lg text-dark mr-3">
+        <h1 class="font-weight-bold title text-dark">
+            {?title}
+            {title}
+            {:else}
+            {_.make.title} {_.model.title}{?edition}
+            <span class="text-muted ml-1">{edition}{/edition} {manufacturedAt|year}</span>
+            {/title}
+        </h1>
+    </div>
+    <div class="col-lg text-muted">
+        <div class="text-truncate mt-2">
+            <i class="fas fa-user fa-fw mr-1"></i>
+            <span class="mr-1">for <strong>sale</strong> by</span>
+            <a href="/vehicles?query[user]={_.user.id}"
+               class="text-decoration-none text-primary">{_.user.username}</a>
+        </div>
+        <div class="mt-2">
+            <i class="fas fa-clock fa-fw mr-1"></i>
+            {?_.bumped} <i class="fas fa-angle-double-up text-warning mr-1"></i>{/_.bumped}{createdAt|ago}
+        </div>
+        <div class="mt-2">
+            <i class="fas fa-map-marker-alt fa-fw mr-1"></i>
+            {_.city}
+        </div>
+    </div>
+    <div class="col-lg font-weight-bold title text-dark mt-3">
+        <span class="text-success h0 mr-1">{price|numeral}</span>
+        <span class="text-muted h6">LKR</span>
+    </div>
+    <div class="col-lg btn-group actions mt-2" role="group">
+        <!--<button type="button" class="btn rounded-circle pl-0 mr-1">
+            <i class="fab fa-facebook-f fa-fw text-primary"></i>
+        </button>
+        <button type="button" class="btn rounded-circle pl-0 mr-1">
+            <i class="fab fa-twitter fa-fw text-info"></i>
+        </button>-->
+        <a href="/vehicles/{id}/report" class="btn btn-link rounded-circle pl-0 mr-1">
+            <i class="fas fa-flag fa-fw text-danger"></i>
+        </a>
+    </div>
+</div>
+<!--<hr class="divider mt-2"/>-->
+<div class="row mt-md-5 mt-4 text-nowrap">
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-ribbon fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Type</h4>
+                <span class="h4 font-weight-bold text-dark">{_.type}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-battery-full fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Condition</h4>
+                <span class="h4 text-capitalize font-weight-bold text-dark">{_.condition}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-tachometer-alt fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Mileage</h4>
+                <span class="h4 font-weight-bold text-dark">
+                    {mileage|numeral}<small class="text-muted ml-1">km</small>
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-palette fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Color</h4>
+                <span class="h4 text-capitalize font-weight-bold text-dark">{color}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-gas-pump fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Fuel</h4>
+                <span class="h4 text-capitalize font-weight-bold text-dark">{fuel}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-cog fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Drive Type</h4>
+                <span class="h4 text-capitalize font-weight-bold text-dark">{_.driveType}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-flask fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Engine</h4>
+                <span class="h4 font-weight-bold text-dark">
+                    {engine|numeral}<small class="text-muted ml-1">cc</small>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="media">
+            <span class="btn rounded-circle pl-0">
+              <i class="fas fa-cogs fa-fw text-muted"></i>
+            </span>
+            <div class="media-body">
+                <h4 class="h5 text-secondary mb-1 mt-0">Transmission</h4>
+                <span class="h4 text-capitalize font-weight-bold text-dark">{transmission}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{?description}
+<div class="mt-4 mb-4">
+    <!--<h3 class="text-dark font-weight-bold mb-4">Description</h3>-->
+    <div class="text-muted">{description|s|js}</div>
+</div>
+{/description}
+<div class="d-flex">
+    <div class="text-nowrap row mt-lg-4 mt-3">
+        <div class="col-lg mb-4 mr-5">
+            {?_.contact}
+            <h2 class="mb-3 text-dark font-weight-bold">
+                <i class="fas fa-mobile mr-2 text-muted"></i>Contacts
+            </h2>
+            <div class="model-contacts-info">
+                {?_.contact.phone}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fas fa-mobile-alt fa-fw mr-2 text-muted"></i>
+                        <a href="tel:{_.contact.phone}" class="text-decoration-none text-muted">{_.contact.phone}</a>
+                    </div>
+                </div>
+                {/_.contact.phone}
+                {?_.contact.email}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fas fa-envelope fa-fw mr-2 text-muted"></i>{_.contact.email}
+                    </div>
+                </div>
+                {/_.contact.email}
+                {?_.contact.viber}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fab fa-viber fa-fw mr-2 text-muted"></i>{_.contact.viber}
+                    </div>
+                </div>
+                {/_.contact.viber}
+                {?_.contact.whatsapp}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fab fa-whatsapp fa-fw mr-2 text-muted"></i>{_.contact.whatsapp}
+                    </div>
+                </div>
+                {/_.contact.whatsapp}
+                {?_.contact.messenger}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fab fa-facebook-messenger fa-fw mr-2 text-muted"></i>{_.contact.messenger}
+                    </div>
+                </div>
+                {/_.contact.messenger}
+                {?_.contact.skype}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        <i class="fab fa-skype fa-fw mr-2 text-muted"></i>{_.contact.skype}
+                    </div>
+                </div>
+                {/_.contact.skype}
+            </div>
+            {/_.contact}
+        </div>
+        <div class="col-lg mb-4 mt-3 mt-lg-0">
+            {?_.location}
+            <h2 class="mb-3 text-dark font-weight-bold">
+                <i class="fas fa-map-marker mr-2 text-muted"></i>Location
+            </h2>
+            <div class="location-info">
+                <!--{?_.location.name}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.name}
+                    </div>
+                </div>
+                {/_.location.name}-->
+                {?_.location.line1}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.line1}{?_.location.line2}, {_.location.line2}{/_.location.line2}
+                    </div>
+                </div>
+                {/_.location.line1}
+                {?_.location.city}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.city}{?_.location.postal} {_.location.postal}{/_.location.postal}
+                    </div>
+                </div>
+                {/_.location.city}
+                {?_.location.district}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.district}
+                    </div>
+                </div>
+                {:else}
+                {?_.location.province}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.province}
+                    </div>
+                </div>
+                {:else}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.state}
+                    </div>
+                </div>
+                {/_.location.province}
+                {/_.location.district}
+                {?_.location.country}
+                <div class="d-flex justify-content-start">
+                    <div class="p-1">
+                        {_.location.country}
+                    </div>
+                </div>
+                {/_.location.country}
+            </div>
+            {/_.location}
+        </div>
+    </div>
+</div>

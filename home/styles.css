@@ -1,0 +1,19 @@
+.sandbox-classifieds-client-home h1 {
+    font-weight: bold;
+}
+
+html, body, #content, .sandbox-classifieds-client {
+    height: 100%;
+}
+
+body {
+    background-color: #f8f9fa!important;
+}
+
+.sandbox-classifieds-client .category .card-body {
+    height: 220px;
+}
+
+.sandbox-classifieds-client .category h1 {
+    text-transform: lowercase;
+}

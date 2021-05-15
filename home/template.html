@@ -1,0 +1,32 @@
+{@slice context=categories size="4"}
+<div class="row">
+    {#.}
+    <!--<div class="col-lg-{size}">
+        <div class="thumbnail infinity">
+            <div class="card mb-4 mt-2">
+                <a href="{realestates}" class="text-decoration-none">
+                    <div class="card mb-3 mb-lg-0">
+                        <div class="card-body p-5 text-center">
+                            <img class="text-center" src="{@cdn path="/icons/master/house.png"/}"/>
+                            <h1 class="text-muted mt-2">{label}</h1>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-md text-center mb-4 category">
+        <a href="{value}" class="text-decoration-none">
+            <div class="card mb-3 mb-lg-0">
+                <div class="card-body p-5">
+                    <!--<i class="fas fa-home fa-5x text-primary"></i>-->
+                    <img class="text-center" src="{@cdn path="/icons/master/house.png"/}"/>
+                    <h1 class="text-muted mt-2">{label}</h1>
+                </div>
+            </div>
+        </a>
+    </div>
+    {/.}
+</div>
+{/slice}
+

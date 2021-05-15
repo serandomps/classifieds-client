@@ -1,0 +1,10 @@
+<h1 class="title text-center font-weight-bold">{?id}{_.make.title} {_.model.title} {manufacturedAt|year}{:else}Create your Vehicle{/id}</h1>
+<form role="form">
+    {@steps}
+        {@step name="classified" title="{model}" icon="fas fa-2x fa-car" active="true" back=_.back}
+            {>"classifieds-client-create-clothes"/}
+        {/step}
+        {@step name="location" title="Location" icon="fas fa-2x fa-map-marker-alt"}{/step}
+        {@step name="contact" title="Contacts" icon="fas fa-2x fa-mobile-alt"}{/step}
+    {/steps}
+</form>

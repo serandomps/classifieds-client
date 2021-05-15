@@ -1,0 +1,20 @@
+
+.sandbox-model-vehicles-create .control-label {
+    margin-bottom: 4px;
+}
+
+.sandbox-model-vehicles-create .files .filename {
+    overflow: hidden;
+}
+
+.sandbox-model-vehicles-create .files .info {
+    margin-bottom: 2px;
+}
+
+.sandbox-model-vehicles-create .files .thumbnail {
+    text-align: center;
+}
+
+.sandbox-model-vehicles-create .btn.next {
+    margin-right: 5px;
+}
